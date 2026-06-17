@@ -132,6 +132,11 @@ pre {
   overflow: hidden;
 }
 
+.app-layout > * {
+  min-height: 0;
+  min-width: 0;
+}
+
 .app-header {
   grid-column: 1 / -1;
   display: flex;
