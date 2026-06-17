@@ -1,0 +1,280 @@
+/* ─── Context Inspector ──────────────────────────────────────────────────── */
+
+.inspector {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.noContext {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+}
+
+/* ─── Context Selector ───────────────────────────────────────────────────── */
+
+.contextSelector {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.contextSelect {
+  flex: 1;
+  padding: var(--space-xs) var(--space-sm);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  outline: none;
+}
+
+.contextSelect:focus {
+  border-color: var(--accent-blue);
+}
+
+/* ─── Tabs ───────────────────────────────────────────────────────────────── */
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border-primary);
+  background: var(--bg-secondary);
+}
+
+.tab {
+  flex: 1;
+  padding: var(--space-sm) var(--space-md);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.tab:hover {
+  color: var(--text-secondary);
+}
+
+.tab.active {
+  color: var(--accent-blue);
+  border-bottom-color: var(--accent-blue);
+}
+
+/* ─── History Scrubber ───────────────────────────────────────────────────── */
+
+.scrubber {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.scrubberLabel {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.scrubberSlider {
+  flex: 1;
+  height: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--border-primary);
+  border-radius: 2px;
+  outline: none;
+}
+
+.scrubberSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  cursor: pointer;
+  border: 2px solid var(--bg-primary);
+}
+
+.scrubberButtons {
+  display: flex;
+  gap: 2px;
+}
+
+.scrubberBtn {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: var(--font-size-xs);
+  transition: all var(--transition-fast);
+}
+
+.scrubberBtn:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.scrubberBtn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* ─── Tree View ──────────────────────────────────────────────────────────── */
+
+.treeView {
+  flex: 1;
+  overflow: auto;
+  padding: var(--space-md);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  background: #09090b;
+}
+
+.treeNode {
+  padding: 1px 0;
+  cursor: default;
+}
+
+.treeNodeRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 1px var(--space-xs);
+  border-radius: 2px;
+  transition: background var(--transition-fast);
+}
+
+.treeNodeRow:hover {
+  background: var(--bg-hover);
+}
+
+.treeToggle {
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: var(--text-muted);
+  cursor: pointer;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.treeKey {
+  color: var(--accent-purple);
+  flex-shrink: 0;
+}
+
+.treeColon {
+  color: var(--text-muted);
+  margin: 0 2px;
+}
+
+.treeValue {
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.treeValue.string {
+  color: var(--accent-green);
+}
+
+.treeValue.number {
+  color: var(--accent-blue);
+}
+
+.treeValue.boolean {
+  color: var(--accent-amber);
+}
+
+.treeValue.null {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.treeChildren {
+  padding-left: 16px;
+  border-left: 1px solid var(--border-secondary);
+  margin-left: 6px;
+}
+
+/* ─── Diff Highlights ────────────────────────────────────────────────────── */
+
+.diffAdded {
+  background: rgba(52, 211, 153, 0.1);
+  border-left: 2px solid var(--accent-green);
+  padding-left: var(--space-xs);
+}
+
+.diffRemoved {
+  background: rgba(248, 113, 113, 0.1);
+  border-left: 2px solid var(--accent-red);
+  padding-left: var(--space-xs);
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.diffChanged {
+  background: rgba(251, 191, 36, 0.1);
+  border-left: 2px solid var(--accent-amber);
+  padding-left: var(--space-xs);
+}
+
+/* ─── Diff Summary ───────────────────────────────────────────────────────── */
+
+.diffSummary {
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border-primary);
+  display: flex;
+  gap: var(--space-md);
+  font-size: var(--font-size-xs);
+}
+
+.diffCount {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.diffDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.diffDot.added {
+  background: var(--accent-green);
+}
+
+.diffDot.removed {
+  background: var(--accent-red);
+}
+
+.diffDot.changed {
+  background: var(--accent-amber);
+}

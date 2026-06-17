@@ -1,0 +1,22 @@
+# Dependency directories
+node_modules/
+**/node_modules/
+
+# Next.js build output
+.next/
+**/.next/
+
+# Production builds
+dist/
+build/
+**/dist/
+**/build/
+
+# Testing
+coverage/
+
+# OS files
+.DS_Store
+
+# Env files
+.env*.local

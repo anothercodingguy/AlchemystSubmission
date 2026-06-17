@@ -1,0 +1,108 @@
+/* ─── Connection Status ──────────────────────────────────────────────────── */
+
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  transition: all var(--transition-normal);
+  border: 1px solid transparent;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* States */
+.connected .statusDot {
+  background: var(--accent-green);
+  box-shadow: 0 0 6px var(--accent-green);
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.connected {
+  background: rgba(16, 185, 129, 0.1);
+  color: #34d399;
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.connecting .statusDot,
+.resuming .statusDot {
+  background: var(--accent-amber);
+  animation: pulse 1s infinite ease-in-out;
+}
+
+.connecting,
+.resuming {
+  background: rgba(245, 158, 11, 0.1);
+  color: #fbbf24;
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.reconnecting .statusDot {
+  background: var(--accent-red);
+  animation: pulse 1s infinite ease-in-out;
+}
+
+.reconnecting {
+  background: rgba(244, 63, 94, 0.1);
+  color: #fb7185;
+  border-color: rgba(244, 63, 94, 0.3);
+}
+
+.disconnected .statusDot {
+  background: var(--text-muted);
+}
+
+.disconnected {
+  background: #27272a;
+  color: #a1a1aa;
+  border-color: #3f3f46;
+}
+
+/* Reconnection banner */
+.reconnectBanner {
+  position: fixed;
+  top: 56px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 20px;
+  background: var(--accent-amber-dim);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  border-radius: var(--radius-md);
+  color: var(--accent-amber);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  z-index: 100;
+  animation: fadeIn var(--transition-normal) forwards;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.reconnectSpinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--accent-amber-dim);
+  border-top-color: var(--accent-amber);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.seqInfo {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-left: var(--space-sm);
+}
