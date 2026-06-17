@@ -114,7 +114,7 @@ export function useAgent(): UseAgentReturn {
 
       case 'PING': {
         // Handled by HeartbeatManager in ConnectionManager
-        // Already marked processed there
+        manager?.markSeqProcessed(message.seq);
         break;
       }
 

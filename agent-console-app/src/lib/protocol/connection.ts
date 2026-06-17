@@ -204,16 +204,12 @@ export class ConnectionManager {
 
     const message = parsed;
 
-    // PING is handled immediately — bypass the reorder buffer for latency
+    // PING is handled immediately for latency
     if (message.type === 'PING') {
       this.heartbeatManager.handlePing(message);
-      // Still dispatch to trace timeline (but don't need reordering)
-      this.onMessage(message);
-      this.reorderBuffer.markProcessed(message.seq);
-      return;
     }
 
-    // All other messages go through the reorder buffer
+    // All messages go through the reorder buffer to maintain sequence numbers
     const ready = this.reorderBuffer.insert(message);
     for (const msg of ready) {
       this.onMessage(msg);
