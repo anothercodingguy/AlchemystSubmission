@@ -77,28 +77,6 @@ npm test
 └── DECISIONS.md             # Deep-dive architectural justification
 ```
 
-## 🎥 Chaos Mode Demo Video
-
-> [!IMPORTANT]
-> **Video Link**: [Insert your Loom or YouTube Unlisted video link here]
->
-> This 3-5 minute screen recording demonstrates the console running against `agent-server` in **Chaos Mode** and highlights:
-> 1. **Connection drop mid-stream**: Connection drops, client transitions to "Reconnecting", then auto-resumes mid-word without duplicate text or DOM resets.
-> 2. **Out-of-order messages**: Timeline automatically sorts jumbled messages by their sequence number (`seq`).
-> 3. **Rapid tool calls**: Handles multiple overlapping tool cards stacked sequentially.
-> 4. **Oversized context snapshot**: Handles 500KB+ state dumps without UI freeze or performance drops.
-> 5. **Corrupt heartbeat**: Heartbeat manager continues running when PING messages contain empty challenges.
-
-## 🖼️ Application Screenshots
-
-### 1. Normal Mode Chat & Tool Card
-![Normal Mode Chat](https://placehold.co/800x450/18181b/f4f4f5?text=Chat+Panel+With+Tool+Cards)
-
-### 2. Event Trace Timeline
-![Trace Timeline](https://placehold.co/800x450/18181b/f4f4f5?text=Trace+Timeline+With+Token+Grouping)
-
-### 3. Context Inspector & Diff Tree
-![Context Inspector](https://placehold.co/800x450/18181b/f4f4f5?text=Context+Inspector+Scrubber+and+JSON+Diff)
 
 ## Tech Stack
 
